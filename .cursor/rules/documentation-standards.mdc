@@ -1,0 +1,12 @@
+---
+description: Keep architecture docs and ADRs synchronized with code
+globs: docs/**/*.md
+alwaysApply: false
+---
+
+# Documentation
+
+- Update architecture docs when structure or commands change.
+- Add an ADR for significant decisions.
+- Do not mark incomplete roadmap work as done.
+- Skill: `.cursor/skills/documentation-sync/SKILL.md`.

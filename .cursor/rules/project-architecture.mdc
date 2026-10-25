@@ -1,0 +1,15 @@
+---
+description: Repository organization, package responsibilities, and dependency boundaries
+alwaysApply: true
+---
+
+# Project architecture
+
+- Apps: `apps/web` (Next.js), `apps/api` (NestJS Clean Architecture).
+- Packages: `@repo/contracts` (Zod only), `@repo/ui` (presentation), `@repo/eslint-config`, `@repo/typescript-config`.
+- Do not move API domain/application/infrastructure into Turborepo packages.
+- Domain must not import Nest, Prisma, Redis, HTTP, React, Next, or `@repo/contracts`.
+- Keep NestJS as the composition root. Prefer explicit factories over generic base classes.
+- Do not add auth, queues, or GraphQL.
+- Spec Kit 1.2.3 is initialized for Cursor. Do not invent product specs. Do not hand-edit generated `.specify/` templates or `.cursor/skills/speckit-*` skills.
+- Authoritative docs: `docs/architecture/overview.md`, `AGENTS.md`.

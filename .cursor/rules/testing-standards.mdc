@@ -1,0 +1,13 @@
+---
+description: Meaningful tests and safe test-database usage
+globs: "**/*.{spec,test}.{ts,tsx}"
+alwaysApply: false
+---
+
+# Testing
+
+- Test behavior, not private implementation details.
+- Use fakes for use-case unit tests. Use `work_board_test` for persistence/e2e.
+- Never reset or destroy non-test databases.
+- Mock only at true boundaries (HTTP, Redis, Prisma in unit tests).
+- Skill: `.cursor/skills/write-tests/SKILL.md`.

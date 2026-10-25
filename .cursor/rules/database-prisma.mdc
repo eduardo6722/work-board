@@ -1,0 +1,13 @@
+---
+description: Prisma usage, migrations, and infrastructure isolation
+globs: apps/api/prisma/**/*.{prisma,sql,toml}
+alwaysApply: false
+---
+
+# Prisma
+
+- Prisma stays in infrastructure. Domain entities must not import Prisma types.
+- Use Prisma 7 with `@prisma/adapter-pg`.
+- Inspect generated SQL before applying migrations.
+- Never reset a non-test database without explicit authorization.
+- Skill: `.cursor/skills/create-prisma-migration/SKILL.md`.

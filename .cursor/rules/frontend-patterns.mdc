@@ -1,0 +1,14 @@
+---
+description: Next.js App Router, Query, forms, and UI patterns
+globs: apps/web/**/*.{ts,tsx}
+alwaysApply: false
+---
+
+# Frontend patterns
+
+- Server Components by default. Client Components only for interactivity.
+- TanStack Query for client server state. Native fetch via `src/lib/api`.
+- React Hook Form + `zodResolver` + `@repo/contracts`.
+- Use `@repo/ui` primitives. Preserve accessibility and semantic HTML.
+- Cover loading, empty, error, and success states.
+- Follow `.cursor/skills/create-frontend-feature/SKILL.md`.

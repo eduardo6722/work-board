@@ -1,0 +1,27 @@
+{
+  "moduleFileExtensions": ["js", "json", "ts"],
+  "rootDir": "..",
+  "testEnvironment": "node",
+  "testRegex": ".*(\\.e2e-spec|prisma-board\\.repository\\.spec)\\.ts$",
+  "transform": {
+    "^.+\\.(t|j)s$": [
+      "@swc/jest",
+      {
+        "jsc": {
+          "target": "es2022",
+          "parser": { "syntax": "typescript", "decorators": true },
+          "transform": { "decoratorMetadata": true, "legacyDecorator": true }
+        },
+        "module": { "type": "commonjs" }
+      }
+    ]
+  },
+  "transformIgnorePatterns": [
+    "/node_modules/(?!.*(@nestjs|@prisma|uid|load-esm|file-type|token-types|strtok3|peek-readable|@standard-schema)/)"
+  ],
+  "globalSetup": "<rootDir>/test/global-setup.ts",
+  "setupFiles": ["<rootDir>/test/setup-env.ts"],
+  "moduleNameMapper": {
+    "^@repo/contracts$": "<rootDir>/../../packages/contracts/src/index.ts"
+  }
+}

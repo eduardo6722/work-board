@@ -1,0 +1,20 @@
+---
+description: Mandatory independent review after significant implementation
+alwaysApply: true
+---
+
+# Code review
+
+After meaningful architecture, backend, frontend, contract, or refactor work, and before completing a major stage, invoke the `code-reviewer` subagent (`.cursor/agents/code-reviewer.md`).
+
+Group related edits into one completed change and invoke the reviewer once after relevant validation. Do not trigger another review merely because code is committed or pushed. Re-review only substantive corrections or newly introduced meaningful changes.
+
+Supply an explicit file list, change summary, diff or baseline when available, and existing validation results. Never treat all untracked files as the task scope. Without an initial commit, use the task's explicit file list and before/after summary.
+
+The reviewer checks only applicable architecture, TypeScript, React component order, hooks correctness, contracts, domain isolation, security, tests, and docs within that scope. Reuse existing validation evidence; run additional focused checks only for a concrete concern.
+
+Default reviews target 120 seconds and at most 6 read/search batches, with no executable validation. Include the budget and stop behavior directly in the subagent task message as specified by the review-code skill. At the limit, return findings and uncovered scope with `INCOMPLETE`; do not silently pass partial coverage, mark its review task complete, or launch automatic continuation passes. A deeper review needs an explicit request. These prompt limits are not a hard platform timeout.
+
+Do not complete work with unresolved Critical or High findings. Medium findings need a fix or justification.
+
+Use `.cursor/skills/review-code/SKILL.md`. Do not spawn a reviewer for trivial typo edits.

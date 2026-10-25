@@ -1,0 +1,13 @@
+---
+description: Redis cache-aside, TTL, and failure handling
+globs: apps/api/**/cache/**/*.ts
+alwaysApply: false
+---
+
+# Redis caching
+
+- Cache-aside only. Do not cache every HTTP request.
+- Use `CachePort`. Do not inject Redis into controllers or domain entities.
+- Define key conventions and TTL. Invalidate explicitly on writes.
+- Redis failures must not block database-backed reads.
+- Skill: `.cursor/skills/implement-caching/SKILL.md`.

@@ -1,0 +1,13 @@
+---
+description: Shared Zod contracts as the HTTP source of truth
+globs: packages/contracts/**/*.ts
+alwaysApply: false
+---
+
+# Shared contracts
+
+- Zod schemas are the source of truth. Infer types with `z.infer` / `z.input` / `z.output`.
+- No Nest, Next, React, Prisma, domain entities, or repositories in this package.
+- Transport contracts stay separate from domain models.
+- Export through `src/index.ts` and add valid/invalid schema tests.
+- Skill: `.cursor/skills/create-shared-contract/SKILL.md`.

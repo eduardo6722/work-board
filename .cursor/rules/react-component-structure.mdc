@@ -1,0 +1,25 @@
+---
+description: Mandatory React function component body order
+globs: apps/web/**/*.tsx
+alwaysApply: false
+---
+
+# React component structure
+
+Project-owned function components must use this order:
+
+1. States
+2. Library hooks
+3. Custom hooks
+4. Constants
+5. Functions
+6. Effects
+7. Return
+
+Prefer `export default function ComponentName()`.
+
+Hooks rules take priority. Do not add effects just to fill a section. Server Components stay server components.
+
+Before creating or refactoring a component, follow `.cursor/skills/create-react-component/SKILL.md`.
+
+The ESLint rule `react-component-structure/react-component-structure` flags order violations. Justified exceptions need a comment.

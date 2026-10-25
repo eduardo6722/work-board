@@ -1,0 +1,15 @@
+---
+description: NestJS Clean Architecture inside apps/api
+globs: apps/api/**/*.ts
+alwaysApply: false
+---
+
+# Backend Clean Architecture
+
+- Feature modules under `apps/api/src/modules/<feature>/`.
+- Domain: entities, repository contracts, domain errors. No Nest/Prisma/Redis.
+- Application: use cases depending on contracts/ports only.
+- Infrastructure: Prisma repositories, mappers, cache adapters.
+- Presentation: thin controllers, Zod at the HTTP boundary, HTTP mappers.
+- Bind implementations with injection tokens in the Nest module.
+- See `docs/architecture/backend.md` and `.cursor/skills/create-backend-feature/SKILL.md`.

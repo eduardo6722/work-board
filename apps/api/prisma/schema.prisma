@@ -1,0 +1,36 @@
+generator client {
+  provider     = "prisma-client"
+  output       = "../src/generated/prisma"
+  moduleFormat = "cjs"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model BoardMeta {
+  id           String @id
+  nextSequence Int    @map("next_sequence")
+  revision     Int
+
+  @@map("board_meta")
+}
+
+model BoardTask {
+  id       String @id
+  title    String
+  column   String
+  sequence Int    @unique
+
+  @@map("board_tasks")
+}
+
+model BoardHistoryEntry {
+  position   Int     @id
+  type       String
+  taskId     String  @map("task_id")
+  fromColumn String? @map("from_column")
+  toColumn   String? @map("to_column")
+
+  @@map("board_history_entries")
+}
